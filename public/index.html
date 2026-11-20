@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Guardians of Destiny — Community Multigaming Italiana dal 1999</title>
+  <link rel="icon" type="image/x-icon" href="/favicon.ico">
+  <meta name="description" content="Storica community multigaming italiana nata nel 1999 su StarCraft e oggi attiva su World of Warcraft, Star Citizen (Orky Inc) e altri MMORPG.">
+  <style>
+    :root {
+      --bg-primary: #0b101b;
+      --bg-secondary: #101726;
+      --bg-card: #141d2f;
+      --bg-card-hover: #1a263d;
+      --border-color: #253452;
+      --text-main: #edf1f8;
+      --text-muted: #a2b0c9;
+      --accent-blue: #7898eb;
+      --accent-blue-light: #a7bef7;
+      --accent-yellow: #e6d832;
+      --accent-yellow-light: #f4ea6c;
+      --discord-blurple: #5865F2;
+      --discord-hover: #4752C4;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      background-color: var(--bg-primary);
+      background-image:
+        radial-gradient(circle at 50% 0%, rgba(120, 152, 235, 0.16) 0%, transparent 55%),
+        radial-gradient(circle at 50% 100%, rgba(230, 216, 50, 0.05) 0%, transparent 50%);
+      color: var(--text-main);
+      line-height: 1.65;
+      min-height: 100vh;
+    }
+
+    .container {
+      max-width: 940px;
+      margin: 0 auto;
+      padding: 2.5rem 1.5rem 4rem;
+    }
+
+    /* Notice Banner (Forum Retired) */
+    .archive-notice {
+      background: rgba(230, 216, 50, 0.10);
+      border: 1px solid rgba(230, 216, 50, 0.35);
+      color: var(--accent-yellow-light);
+      text-align: center;
+      padding: 0.75rem 1.25rem;
+      border-radius: 10px;
+      font-size: 0.92rem;
+      margin-bottom: 2.5rem;
+    }
+
+    /* Header / Hero */
+    header {
+      text-align: center;
+      margin-bottom: 3.5rem;
+    }
+
+    .banner-wrapper {
+      display: inline-block;
+      margin-bottom: 1.1rem;
+      padding: 0.35rem 0.75rem;
+    }
+
+    .banner-wrapper img {
+      display: block;
+      width: 240px;
+      max-width: 100%;
+      height: auto;
+      filter: drop-shadow(0 4px 12px rgba(120, 152, 235, 0.25));
+    }
+
+    .badge {
+      display: inline-block;
+      text-transform: uppercase;
+      letter-spacing: 0.12em;
+      font-size: 0.76rem;
+      font-weight: 700;
+      color: var(--accent-yellow);
+      background: rgba(230, 216, 50, 0.08);
+      border: 1px solid rgba(230, 216, 50, 0.38);
+      padding: 0.3rem 0.9rem;
+      border-radius: 999px;
+      margin-bottom: 1rem;
+    }
+
+    h1 {
+      font-size: clamp(2.1rem, 5vw, 3.2rem);
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 1.25rem;
+      background: linear-gradient(135deg, #ffffff 25%, var(--accent-blue-light) 70%, var(--accent-yellow-light) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .lead {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      max-width: 780px;
+      margin: 0 auto;
+    }
+
+    .lead strong {
+      color: var(--text-main);
+    }
+
+    /* Discord CTA Section */
+    .discord-section {
+      margin-bottom: 4rem;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 0.45rem;
+      color: #ffffff;
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+    }
+
+    .section-title::before {
+      content: "";
+      display: inline-block;
+      width: 4px;
+      height: 1.35rem;
+      border-radius: 2px;
+      background: linear-gradient(180deg, var(--accent-yellow), var(--accent-blue));
+    }
+
+    .section-subtitle {
+      color: var(--text-muted);
+      margin-bottom: 1.75rem;
+      font-size: 0.98rem;
+    }
+
+    .discord-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 1.35rem;
+    }
+
+    .discord-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.2s ease, border-color 0.2s ease, background-color 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .discord-card:hover {
+      transform: translateY(-3px);
+      border-color: var(--accent-blue);
+      background: var(--bg-card-hover);
+      box-shadow: 0 10px 26px rgba(11, 16, 27, 0.55);
+    }
+
+    .discord-card h3 {
+      font-size: 1.18rem;
+      margin-bottom: 0.55rem;
+      color: var(--accent-blue-light);
+    }
+
+    .discord-card p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+      margin-bottom: 1.6rem;
+    }
+
+    .btn-discord {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      background-color: var(--discord-blurple);
+      color: #ffffff;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 0.95rem;
+      padding: 0.8rem 1.25rem;
+      border-radius: 8px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      transition: background-color 0.2s ease, transform 0.15s ease;
+    }
+
+    .btn-discord:hover {
+      background-color: var(--discord-hover);
+    }
+
+    /* Info Sections */
+    .content-section {
+      margin-bottom: 3.5rem;
+    }
+
+    .games-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 1.25rem;
+    }
+
+    .info-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border-color);
+      border-radius: 12px;
+      padding: 1.6rem;
+      transition: border-color 0.2s ease;
+    }
+
+    .info-card:hover {
+      border-color: rgba(120, 152, 235, 0.5);
+    }
+
+    .info-card h3 {
+      color: var(--accent-yellow);
+      font-size: 1.15rem;
+      margin-bottom: 0.6rem;
+    }
+
+    .info-card p {
+      color: var(--text-muted);
+      font-size: 0.96rem;
+    }
+
+    .info-card strong {
+      color: var(--text-main);
+    }
+
+    .info-card a {
+      color: var(--accent-blue-light);
+      text-decoration: underline;
+      text-underline-offset: 3px;
+    }
+
+    .info-card a:hover {
+      color: var(--accent-yellow-light);
+    }
+
+    .philosophy-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1.25rem;
+    }
+
+    footer {
+      text-align: center;
+      padding-top: 2rem;
+      border-top: 1px solid var(--border-color);
+      color: var(--text-muted);
+      font-size: 0.88rem;
+    }
+
+    footer span {
+      color: var(--accent-yellow);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+
+    <div class="archive-notice">
+      📢 <strong>Avviso alla community:</strong> Il nostro storico forum è stato mandato in pensione. Tutte le attività, il reclutamento e le chat si sono spostate sui nostri due server Discord!
+    </div>
+
+    <header>
+      <div class="banner-wrapper">
+        <img src="img/banner.png" alt="Logo storico Guardians of Destiny">
+      </div>
+      <div>
+        <span class="badge">Community Multigaming Italiana • Dal 1999</span>
+      </div>
+      <h1>Guardians of Destiny</h1>
+      <p class="lead">
+        I <strong>Guardians of Destiny</strong> sono una storica community multigaming italiana nata come clan su <em>StarCraft</em> nel <strong>1999</strong> dall'iniziativa di tre amici, ed espansasi successivamente su <em>World of Warcraft Vanilla</em> e numerosi altri universi online. Negli anni il clan si è distinto per un approccio <strong>semi-hardcore</strong> basato sull'amicizia, il rispetto e il gioco di squadra senza l'ossessione per il farming estremo.
+      </p>
+    </header>
+
+    <!-- Sezione Server Discord -->
+    <section class="discord-section" aria-labelledby="discord-heading">
+      <h2 class="section-title" id="discord-heading">Unisciti ai nostri Server Discord</h2>
+      <p class="section-subtitle">Scegli il server di riferimento per entrare in contatto con la gilda e partecipare alle attività vocali:</p>
+
+      <div class="discord-grid">
+        <!-- Card Discord 1: WoW -->
+        <div class="discord-card">
+          <div>
+            <h3>World of Warcraft — Pozzo dell'Eternità</h3>
+            <p>Il server dedicato alla gilda lato Alleanza su Pozzo dell'Eternità: organizzazione Raid, spedizioni Mitiche+, reclutamento e supporto per nuovi giocatori.</p>
+          </div>
+          <a href="https://discord.gg/INSERISCI_LINK_WOW" class="btn-discord" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 127.14 96.36" fill="currentColor" aria-hidden="true">
+              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+            </svg>
+            Entra nel Discord WoW
+          </a>
+        </div>
+
+        <!-- Card Discord 2: Star Citizen & Multigaming -->
+        <div class="discord-card">
+          <div>
+            <h3>Warhammer Online , Star Citizen &amp; Multigaming</h3>
+            <p>Il punto d'incontro per tutte le altre attività del clan: operazioni su Star Citizen sotto la tag Orky Inc, serate multigaming e quattro chiacchiere tra veterani.</p>
+          </div>
+          <a href="https://discord.gg/INSERISCI_LINK_ALTRO" class="btn-discord" target="_blank" rel="noopener noreferrer">
+            <svg width="20" height="20" viewBox="0 0 127.14 96.36" fill="currentColor" aria-hidden="true">
+              <path d="M107.7,8.07A105.15,105.15,0,0,0,81.47,0a72.06,72.06,0,0,0-3.36,6.83A97.68,97.68,0,0,0,49,6.83,72.37,72.37,0,0,0,45.64,0,105.89,105.89,0,0,0,19.39,8.09C2.79,32.65-1.71,56.6.54,80.21h0A105.73,105.73,0,0,0,32.71,96.36,77.7,77.7,0,0,0,39.6,85.25a68.42,68.42,0,0,1-10.85-5.18c.91-.66,1.8-1.34,2.66-2a75.57,75.57,0,0,0,64.32,0c.87.71,1.76,1.39,2.66,2a68.68,68.68,0,0,1-10.87,5.19,77,77,0,0,0,6.89,11.1A105.25,105.25,0,0,0,126.6,80.22h0C129.24,52.84,122.09,29.11,107.7,8.07ZM42.45,65.69C36.18,65.69,31,60,31,53s5-12.74,11.43-12.74S54,46,53.89,53,48.84,65.69,42.45,65.69Zm42.24,0C78.41,65.69,73.25,60,73.25,53s5-12.74,11.44-12.74S96.23,46,96.12,53,91.08,65.69,84.69,65.69Z"/>
+            </svg>
+            Entra nel Discord Multigaming
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sezione Giochi Principali -->
+    <section class="content-section" aria-labelledby="games-heading">
+      <h2 class="section-title" id="games-heading">Giochi principali e presenza</h2>
+      <p class="section-subtitle">I mondi in cui abbiamo lasciato il segno dal 1999 ad oggi:</p>
+
+      <div class="games-grid">
+        <div class="info-card">
+          <h3>World of Warcraft</h3>
+          <p>
+            Storica gilda lato Alleanza attiva sul reame italiano <strong>Pozzo dell'Eternità (Well of Eternity)</strong>, impegnata in spedizioni Mitiche, Incursioni (Raid) e contenuti di gruppo per giocatori sia esperti che neofiti. Il nostro storico e il roster sono consultabili anche su <strong>WoWProgress</strong> e sul <strong>Forum ufficiale di World of Warcraft</strong>.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Warhammer Online (Return of Reckoning)</h3>
+          <p>
+            Il clan vanta una lunga tradizione fin dai server ufficiali di <em>Warhammer Online: Age of Reckoning</em>. È poi approdato anche sul server privato <strong>Return of Reckoning</strong>, partecipando attivamente a RvR, Scenari, PvP e contenuti PvE.
+          </p>
+        </div>
+        <div class="info-card">
+          <h3>Star Citizen (Orky Inc)</h3>
+          <p>
+            Attualmente attivi nell'universo persistente di <strong>Star Citizen</strong> sotto la tag <a href="https://www.orky.org" target="_blank" rel="noopener noreferrer"><strong>Orky Inc</strong></a>, dove operiamo con servizi di sicurezza e scorta, supporto operativo, recupero e logistica interstellare.
+          </p>
+        </div>
+
+        
+
+        <div class="info-card">
+          <h3>Le origini su StarCraft (1999) e altri titoli</h3>
+          <p>
+            Nati nel <strong>1999 su StarCraft</strong>, nel corso degli anni i rappresentanti del clan hanno guidato gilde e gruppi affiatati anche su <strong>Dark Age of Camelot (DAoC)</strong>, <strong>Guild Wars 2</strong> e <strong>Star Wars: The Old Republic</strong>.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sezione Filosofia e Reclutamento -->
+    <section class="content-section" aria-labelledby="philosophy-heading">
+      <h2 class="section-title" id="philosophy-heading">Filosofia e reclutamento</h2>
+      <p class="section-subtitle">Cosa cerchiamo nei compagni d'avventura:</p>
+
+      <div class="philosophy-grid">
+        <div class="info-card">
+          <h3>Approccio al gioco</h3>
+          <p>
+            Puntiamo a creare un gruppo affiatato e maturo in cui collaborare per raggiungere obiettivi comuni in un clima socievole, divertente e privo di tossicità.
+          </p>
+        </div>
+
+        <div class="info-card">
+          <h3>Requisiti tipici</h3>
+          <p>
+            Accogliamo sia veterani che nuovi giocatori desiderosi di imparare, richiedendo principalmente la <strong>presenza vocale su Discord</strong> per coordinarsi e fare gruppo.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <p>&copy; <span>Guardians of Destiny</span> — Community Multigaming Italiana dal 1999</p>
+    </footer>
+
+  </div>
+</body>
+</html>
